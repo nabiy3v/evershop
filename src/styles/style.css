@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button{
+    padding: 10px 15px;
+    border-radius: 3px;
+}
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+#saidbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    background-color: #7CB1EA;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.name{
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    flex-direction: column;
+   
+}
+.texts, .cards{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.texts button{
+    background-color: #001;
+    color: #fff;
+}
+.text-card, .card{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+}
+.producttext{
+    text-align: center;
+    margin-top: 80px;
+}
