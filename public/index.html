@@ -12,7 +12,7 @@
     <div class="container pb-10">
       <navbar id="navbar">
           <div class="box1">
-            <a href="#" class="decoration-transparent">Shop <i class="fa-solid fa-heart"></i></a>
+            <a href="#" class="decoration-transparent shopPage">Shop <i class="fa-solid fa-heart"></i></a>
             <a href="#" class="decoration-transparent about">About us</a>
           </div>
           <svg class="logo" width="40" height="40" viewBox="0 0 128 146" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32.388 18.0772L1.15175 36.1544L1.05206 72.5081L0.985596 108.895L32.4213 127.039C49.7009 137.008 63.9567 145.182 64.1228 145.182C64.289 145.182 72.8956 140.264 83.2966 134.283C93.6644 128.268 107.82 120.127 114.732 116.139L127.26 108.895V101.119V93.3102L126.529 93.7089C126.097 93.9415 111.941 102.083 95.06 111.853C78.1459 121.622 64.156 129.531 63.9567 129.498C63.724 129.431 52.5587 123.051 39.1005 115.275L14.6099 101.152V72.5746V43.9967L25.6756 37.6165C31.7234 34.1274 42.8223 27.7472 50.2991 23.4273C57.7426 19.1073 63.9899 15.585 64.1228 15.585C64.2557 15.585 72.9288 20.5362 83.3963 26.5841L113.902 43.9967L118.713 41.1657L127.26 36.1544L113.902 28.5447C103.334 22.2974 64.3554 -0.033191 64.0231 3.90721e-05C63.8237 3.90721e-05 49.568 8.14142 32.388 18.0772Z" fill="#1F1F1F"></path><path d="M96.0237 54.1983C78.9434 64.0677 64.721 72.2423 64.4219 72.3088C64.0896 72.4084 55.7488 67.7562 44.8826 61.509L25.9082 50.543V58.4186L25.9414 66.2609L44.3841 76.8945C54.5193 82.743 63.1591 87.6611 63.5911 87.8272C64.2557 88.0598 68.9079 85.5011 95.5585 70.1156C112.705 60.1798 126.861 51.9719 127.027 51.839C127.16 51.7061 127.227 48.1505 127.194 43.9302L127.094 36.2541L96.0237 54.1983Z" fill="#1F1F1F"></path><path d="M123.771 66.7261C121.943 67.7562 107.854 75.8976 92.4349 84.8033C77.0161 93.7089 64.289 100.986 64.1228 100.986C63.9567 100.986 55.3501 96.0683 44.9491 90.0869L26.0744 79.1874L25.9747 86.8303C25.9082 92.6788 26.0079 94.5729 26.307 94.872C26.9383 95.4369 63.7241 116.604 64.1228 116.604C64.4551 116.604 126.496 80.8821 127.027 80.4169C127.16 80.284 127.227 76.7284 127.194 72.4749L127.094 64.7987L123.771 66.7261Z" fill="#1F1F1F"></path></svg>
@@ -39,17 +39,17 @@
           <div class="text-card">
             <h2>Kids shoes collection</h2>
             <p>Constructed from luxury nylons, leathers, and custom hardware, featuring sport details such as hidden breathing vents, waterproof + antimicrobial linings, and more.</p>
-            <button>Shop kids</button>
+            <button class="shopPage">Shop kids</button>
           </div>
           <div class="text-card">
             <h2>Shop Women</h2>
             <p>Constructed from luxury nylons, leathers, and custom hardware, featuring sport details such as hidden breathing vents, waterproof + antimicrobial linings, and more.</p>
-            <button>Women shoes collection</button>
+            <button class="shopPage">Women shoes collection</button>
           </div>
           <div class="text-card">
             <h2>Men shoes collection</h2>
             <p>Constructed from luxury nylons, leathers, and custom hardware, featuring sport details such as hidden breathing vents, waterproof + antimicrobial linings, and more.</p>
-            <button>Shop men</button>
+            <button class="shopPage">Shop men</button>
           </div>
         </div>
         <div class="producttext">Featured Products</div>
@@ -84,7 +84,196 @@
         </div>
       </div>
     </div>
+    <div class="shop max-w-screen-xl mx-auto px-4 py-8 hidden">
+      <!-- Title -->
+      <h1 class="text-3xl font-bold mb-6">MEN</h1>
       
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <!-- Sidebar (Filters) -->
+        <aside>
+          <h2 class="text-lg font-semibold mb-4">SHOP BY</h2>
+          
+          <!-- Price filter (static slider ko'rinishi uchun) -->
+          <div class="mb-6">
+            <label class="block font-semibold mb-2">PRICE</label>
+            <div class="flex items-center space-x-2">
+              <input
+                type="range"
+                min="169"
+                max="802"
+                value="169"
+                class="w-full"
+              />
+              <span class="text-sm whitespace-nowrap">$169 - $802</span>
+            </div>
+          </div>
+          
+          <!-- Size filter -->
+          <div class="mb-6">
+            <label class="block font-semibold mb-2">SIZE</label>
+            <div class="space-y-1">
+              <div>
+                <input type="checkbox" id="sizeL" class="mr-2"/>
+                <label for="sizeL">L</label>
+              </div>
+              <div>
+                <input type="checkbox" id="sizeXL" class="mr-2"/>
+                <label for="sizeXL">XL</label>
+              </div>
+              <div>
+                <input type="checkbox" id="sizeM" class="mr-2"/>
+                <label for="sizeM">M</label>
+              </div>
+              <div>
+                <input type="checkbox" id="sizeS" class="mr-2"/>
+                <label for="sizeS">S</label>
+              </div>
+              <div>
+                <input type="checkbox" id="sizeX" class="mr-2"/>
+                <label for="sizeX">X</label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Color filter -->
+          <div class="mb-6">
+            <label class="block font-semibold mb-2">COLOR</label>
+            <div class="space-y-1">
+              <div>
+                <input type="checkbox" id="white" class="mr-2"/>
+                <label for="white">White</label>
+              </div>
+              <div>
+                <input type="checkbox" id="black" class="mr-2"/>
+                <label for="black">Black</label>
+              </div>
+              <div>
+                <input type="checkbox" id="grey" class="mr-2"/>
+                <label for="grey">Grey</label>
+              </div>
+              <div>
+                <input type="checkbox" id="blue" class="mr-2"/>
+                <label for="blue">Blue</label>
+              </div>
+              <div>
+                <input type="checkbox" id="brown" class="mr-2"/>
+                <label for="brown">Brown</label>
+              </div>
+              <div>
+                <input type="checkbox" id="green" class="mr-2"/>
+                <label for="green">Green</label>
+              </div>
+              <div>
+                <input type="checkbox" id="pink" class="mr-2"/>
+                <label for="pink">Pink</label>
+              </div>
+              <div>
+                <input type="checkbox" id="red" class="mr-2"/>
+                <label for="red">Red</label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Brand filter -->
+          <div>
+            <label class="block font-semibold mb-2">BRAND</label>
+            <div class="space-y-1">
+              <div>
+                <input type="checkbox" id="converse" class="mr-2"/>
+                <label for="converse">Converse</label>
+              </div>
+              <div>
+                <input type="checkbox" id="nike" class="mr-2"/>
+                <label for="nike">Nike</label>
+              </div>
+            </div>
+          </div>
+        </aside>
+        
+        <!-- Products Section -->
+        <section class="lg:col-span-3">
+          <!-- Sort By -->
+          <div class="flex items-center justify-between mb-6">
+            <div></div>
+            <div class="flex items-center space-x-2">
+              <label for="sort" class="text-sm font-medium">Sort By:</label>
+              <select
+                id="sort"
+                class="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none"
+              >
+                <option>Default</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+              </select>
+            </div>
+          </div>
+          
+          <!-- Products Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- Product 1 -->
+            <div class="text-center">
+              <img
+                src="https://demositefiles.blob.core.windows.net/images/catalog/1034/3600/plv7632-Green-listing.png"
+                alt="Nike air zoom pegasus 35"
+                class="mx-auto mb-2 img"
+              />
+              <h3 class="font-semibold">Nike air zoom pegasus 35</h3>
+              <p class="text-gray-500">$411.00</p>
+            </div>
+            <!-- Product 2 -->
+            <div class="text-center">
+              <img
+                src="https://demositefiles.blob.core.windows.net/images/catalog/4599/2529/plv1301-Red-listing.png"
+                alt="Nike air zoom pegasus 35"
+                class="mx-auto mb-2 img"
+              />
+              <h3 class="font-semibold">Nike air zoom pegasus 35</h3>
+              <p class="text-gray-500">$500.00</p>
+            </div>
+            <!-- Product 3 -->
+            <div class="text-center">
+              <img
+                src="https://demositefiles.blob.core.windows.net/images/catalog/7599/6547/plv3643-Blue-listing.png"
+                alt="Seasonal color chuck 70"
+                class="mx-auto mb-2 img"
+              />
+              <h3 class="font-semibold">Seasonal color chuck 70</h3>
+              <p class="text-gray-500">$169.00</p>
+            </div>
+            <!-- Product 4 -->
+            <div class="text-center">
+              <img
+                src="https://demositefiles.blob.core.windows.net/images/catalog/1441/5452/plv4117-Blue-listing.png"
+                alt="Hacked fashion chuck taylor all star"
+                class="mx-auto mb-2 img"
+              />
+              <h3 class="font-semibold">Hacked fashion chuck taylor all star</h3>
+              <p class="text-gray-500">$802.00</p>
+            </div>
+            <!-- Product 5 -->
+            <div class="text-center">
+              <img
+                src="https://demositefiles.blob.core.windows.net/images/catalog/7659/2021/plv1120-White-listing.png"
+                alt="Nizza trefoil shoes"
+                class="mx-auto mb-2 img"
+              />
+              <h3 class="font-semibold">Nizza trefoil shoes</h3>
+              <p class="text-gray-500">$198.00</p>
+            </div>
+            <!-- Product 6 -->
+            <div class="text-center">
+              <img
+                src="https://demositefiles.blob.core.windows.net/images/catalog/8247/2126/plv1439-White-listing.png"
+                alt="Strutter shoes"
+                class="mx-auto mb-2 img"
+              />
+              <h3 class="font-semibold">Strutter shoes</h3>
+              <p class="text-gray-500">$384.00</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
   </body>
   <script src="/dist/index.js" type="module"></script>
 </html>

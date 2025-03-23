@@ -1,4 +1,4 @@
-import { basket, main, logo, images, about } from './elements';
+import { basket, main, logo, images, about, shop, shopPage } from './elements';
 import { type Status } from './type';
 
 let cards: Status[] = [];
@@ -61,7 +61,7 @@ function handleProductClick(e: MouseEvent) {
   <img src="${imgSrc}" width="500">
   <div class="max-w-2xl mx-auto">
     <h1 class="text-3xl font-bold">${titleText}</h1>
-    <p class="text-2xl font-semibold mt-2">${priceText}</p>
+    <p class="text-2xl font-semibold mt-2">$${priceText}</p>
         
     <div class="mt-4">
         <p class="font-semibold">Color:</p>
@@ -180,13 +180,22 @@ function handleAboutUsClick(e: MouseEvent) {
   div.classList.remove('hidden');
 }
 
+function handleShopClick() {
+  empty();
+  shop.classList.remove('hidden');
+
+}
+
 function empty() {
   main.classList.add('hidden');
   basketMessage.classList.add('hidden');
   cartList.classList.add('hidden');
   productCard.classList.add('hidden');
   div.classList.add('hidden');
+  shop.classList.add('hidden');
 }
+
+shopPage.forEach(sh => sh.addEventListener('click', handleShopClick));
 
 about.addEventListener('click', handleAboutUsClick);
 
