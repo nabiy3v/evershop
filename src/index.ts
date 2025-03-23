@@ -1,4 +1,4 @@
-import { basket, main, logo, images } from './elements';
+import { basket, main, logo, images, about } from './elements';
 import { type Status } from './type';
 
 let cards: Status[] = [];
@@ -14,20 +14,36 @@ const cartList = document.createElement('div');
 cartList.classList.add('p-4', 'hidden');
 document.body.append(cartList);
 
-function handleCartClick() {
-  main.classList.add('hidden');
+let div = document.createElement('div');
 
+div.innerHTML = `
+    <div class="flex flex-col items-center">
+      <h1 class="text-3xl font-bold mb-4">About Us</h1>
+      <div class="mt-4 max-w-[1000px]">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec turpis at arcu consequat dictum. In eu euismod quam. Praesent ut finibus risus. Ut eu aliquet libero, non ornare nisl. Aenean gravida urna at ligula viverra, sed pharetra ante pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque efficitur a mi eget hendrerit. Quisque tortor lorem, aliquet eget feugiat ac, volutpat et lorem. Integer porta luctus leo et interdum. Morbi porta diam sem, sit amet porta lectus iaculis ac.</p>
+      </div>
+      <img class="mt-4" src="https://demositefiles.blob.core.windows.net/images/homepage/banner/desktop.png" width="1000">
+      <div class="mt-4 max-w-[1000px]">
+        <p class="mt-2">Donec lacinia malesuada orci, vitae tempor tortor volutpat in. Nullam tempor ex vel eros varius bibendum. Fusce non risus ut ligula mollis molestie. Quisque vel pretium elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam sed lectus luctus, auctor diam nec, varius diam. Sed id tortor at sem hendrerit aliquam.</p>
+      </div>
+    </div>
+  `;
+div.classList.add('hidden');
+
+document.body.append(div);
+
+function handleCartClick() {
+  empty();
+  
   if (cards.length === 0) {
     basketMessage.classList.remove('hidden');
-    productCard.classList.add('hidden');
-  } else {
-    productCard.classList.add('hidden');
   }
 
   renderCart();
 }
 
 function handleProductClick(e: MouseEvent) {
+  empty();
   let target = e.target as HTMLImageElement;
 
   let title = target.nextElementSibling as HTMLSpanElement;
@@ -86,10 +102,10 @@ function handleProductClick(e: MouseEvent) {
 }
 
 function handleAddBtnClick(product: { name: string; price: number; imgSrc: string; quantity: number }) {
-  let existingProduct = cards.find(p => p.name === product.name);
+  let findProduct = cards.find(p => p.name === product.name);
 
-  if (existingProduct) {
-    existingProduct.quantity++;
+  if (findProduct) {
+    findProduct.quantity++;
   } else {
     cards.push({ ...product });
   }
@@ -97,6 +113,8 @@ function handleAddBtnClick(product: { name: string; price: number; imgSrc: strin
 
 function renderCart() {
   cartList.innerHTML = '';
+
+  empty();
 
   if (cards.length === 0) {
     basketMessage.classList.remove('hidden');
@@ -124,7 +142,7 @@ function renderCart() {
             <button class="decrease px-2 py-1 border rounded bg-gray-200">-</button>
             <span>${product.quantity}</span>
             <button class="increase px-2 py-1 border rounded bg-gray-200">+</button>
-            <button class="remove px-2 py-1 border rounded bg-red-500 text-white">X</button>
+            <button class="remove px-2 py-1 border rounded bg-red-500 text-white">Delete</button>
           </div>
         </div>
       `;
@@ -157,13 +175,27 @@ function renderCart() {
   cartList.append(totalDiv);
 }
 
+function handleAboutUsClick(e: MouseEvent) {
+  empty();
+  div.classList.remove('hidden');
+}
+
+function empty() {
+  main.classList.add('hidden');
+  basketMessage.classList.add('hidden');
+  cartList.classList.add('hidden');
+  productCard.classList.add('hidden');
+  div.classList.add('hidden');
+}
+
+about.addEventListener('click', handleAboutUsClick);
+
 images.forEach(img => img.addEventListener('click', handleProductClick));
 
 basket.addEventListener('click', handleCartClick);
 
 logo.addEventListener('click', () => {
+  empty()
   main.classList.remove('hidden');
   productCard.innerHTML = '';
-  basketMessage.classList.add('hidden');
-  cartList.classList.add('hidden');
 });
